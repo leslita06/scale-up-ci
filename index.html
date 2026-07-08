@@ -173,6 +173,24 @@ section{padding:78px 0}
 .p-gude{height:44px}
 .p-gotic{height:62px}
 
+/* ticker data marché */
+.ticker-section{position:relative;background:#0E6B50;overflow:hidden}
+.ticker-viewport{display:flex;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;scroll-snap-type:x proximity;cursor:grab}
+.ticker-viewport::-webkit-scrollbar{display:none}
+.ticker-viewport.dragging{cursor:grabbing;scroll-behavior:auto}
+.ticker-item{display:flex;align-items:center;gap:14px;padding:20px 40px;white-space:nowrap;border-right:1px solid rgba(255,255,255,.12);flex:none;scroll-snap-align:center}
+.ticker-item__icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:none}
+.ticker-item__icon svg{width:20px;height:20px}
+.ticker-item__content{display:flex;flex-direction:column;gap:2px}
+.ticker-item__sector{font-family:var(--body);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;opacity:.82}
+.ticker-item__stat{font-family:var(--title);font-weight:700;font-size:26px;color:#fff;letter-spacing:-.01em;line-height:1}
+.ticker-item__label{font-size:12px;color:rgba(250,247,240,.7);font-weight:500;max-width:340px;white-space:normal}
+.ticker-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:42px;height:42px;border-radius:50%;background:var(--orange);border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.28);transition:background .2s,transform .2s}
+.ticker-nav svg{width:20px;height:20px}
+.ticker-nav:hover{transform:translateY(-50%) scale(1.07)}
+.ticker-nav--prev{left:12px}.ticker-nav--next{right:12px}
+@media(max-width:640px){.ticker-nav{display:none}.ticker-item{padding:16px 26px}.ticker-item__stat{font-size:22px}}
+
 /* citation ministre */
 .quote-band{background:var(--green);color:#fff;padding:70px 0}
 .quote-band__in{display:flex;gap:48px;align-items:center;flex-wrap:wrap}
@@ -285,6 +303,57 @@ footer{background:#04352a;color:rgba(255,255,255,.72);padding:52px 0 30px}
   </div>
 </div></section>
 
+<!-- TICKER DATA MARCHÉ -->
+<div class="ticker-section">
+  <button class="ticker-nav ticker-nav--prev" id="ticker-prev" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <div class="ticker-viewport" id="ticker-vp">
+    <div class="ticker-item">
+      <div class="ticker-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></div>
+      <div class="ticker-item__content">
+        <span class="ticker-item__sector">Numérique</span>
+        <span class="ticker-item__stat">6–8 %</span>
+        <span class="ticker-item__label">du PIB porté par le numérique · objectif &gt; 10 % en 2030</span>
+      </div></div><div class="ticker-item">
+      <div class="ticker-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M9 7h.01M15 7h.01M9 11h.01M15 11h.01M9 15h.01M15 15h.01M10 21v-3h4v3"/></svg></div>
+      <div class="ticker-item__content">
+        <span class="ticker-item__sector">PME</span>
+        <span class="ticker-item__stat">98 %</span>
+        <span class="ticker-item__label">des entreprises ivoiriennes sont des PME (23 % du PIB, 23 % de l'emploi formel)</span>
+      </div></div><div class="ticker-item">
+      <div class="ticker-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/></svg></div>
+      <div class="ticker-item__content">
+        <span class="ticker-item__sector">Investissement</span>
+        <span class="ticker-item__stat">250 Md FCFA</span>
+        <span class="ticker-item__label">investis dans le numérique en Côte d'Ivoire (2024)</span>
+      </div></div><div class="ticker-item">
+      <div class="ticker-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7.6 7.6L11 15M16.4 7.6L13 15M8 6h8"/></svg></div>
+      <div class="ticker-item__content">
+        <span class="ticker-item__sector">Mobile money</span>
+        <span class="ticker-item__stat">28 M</span>
+        <span class="ticker-item__label">comptes · pénétration supérieure à 100 %</span>
+      </div></div><div class="ticker-item">
+      <div class="ticker-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 13h5M9.5 16h5"/></svg></div>
+      <div class="ticker-item__content">
+        <span class="ticker-item__sector">Fiscalité</span>
+        <span class="ticker-item__stat">300–400 Md FCFA</span>
+        <span class="ticker-item__label">de recettes fiscales par an générées par le numérique</span>
+      </div></div><div class="ticker-item">
+      <div class="ticker-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5.5A1.5 1.5 0 019.5 4h5A1.5 1.5 0 0116 5.5V7M3 12h18"/></svg></div>
+      <div class="ticker-item__content">
+        <span class="ticker-item__sector">Financement</span>
+        <span class="ticker-item__stat">78 %</span>
+        <span class="ticker-item__label">des PME citent le financement comme premier frein ; &lt; 25 % accèdent au crédit</span>
+      </div></div><div class="ticker-item">
+      <div class="ticker-item__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6M12 15v6M3 12h6M15 12h6"/></svg></div>
+      <div class="ticker-item__content">
+        <span class="ticker-item__sector">Emploi</span>
+        <span class="ticker-item__stat">50 000</span>
+        <span class="ticker-item__label">emplois qualifiés projetés dans le numérique d'ici 2030</span>
+      </div></div>
+  </div>
+  <button class="ticker-nav ticker-nav--next" id="ticker-next" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+</div>
+
 <section id="programme"><div class="wrap">
   <div class="sec-head">
     <span class="eyebrow">Le programme</span>
@@ -333,9 +402,7 @@ footer{background:#04352a;color:rgba(255,255,255,.72);padding:52px 0 30px}
       <div class="offer-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#064534" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="7" rx="1.6"/><rect x="4" y="13" width="16" height="7" rx="1.6"/><path d="M8 7.5h.01M8 16.5h.01"/></svg></div>
       <h3>Infrastructure</h3><p>Accès prioritaire à la zone franche VITIB et aux centres de données nationaux, crédits d'hébergement cloud et accompagnement à la certification de sécurité.</p></div><div class="offer-card">
       <div class="offer-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#064534" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M5 20V10m4 10V10m6 10V10m4 10V10M12 3l8 5H4z"/></svg></div>
-      <h3>Accès à la commande publique</h3><p>Mise en conformité des dossiers de soumission, cautions débloquées via les fonds de garantie, veille des appels d'offres par les agents IA, en articulation avec PEPITE-CI 2030.</p></div><div class="offer-card">
-      <div class="offer-card__ic"><svg viewBox="0 0 24 24" fill="none" stroke="#064534" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M9.5 13h5M9.5 16h5"/></svg></div>
-      <h3>Plaidoyer & avantages</h3><p>Plaidoyer pour des allègements fiscaux, une franchise douanière sur les équipements technologiques, des facilités foncières (VITIB) et des procédures administratives accélérées.</p></div></div>
+      <h3>Accès à la commande publique</h3><p>Mise en conformité des dossiers de soumission, cautions débloquées via les fonds de garantie, veille des appels d'offres par les agents IA.</p></div></div>
 </div></section>
 
 <section id="eligibilite"><div class="wrap">
@@ -486,5 +553,27 @@ footer{background:#04352a;color:rgba(255,255,255,.72);padding:52px 0 30px}
     <span>Scale Up · Programme national</span>
   </div>
 </div></footer>
+
+<script>
+(function(){
+  var vp=document.getElementById('ticker-vp'); if(!vp) return;
+  var prev=document.getElementById('ticker-prev'), next=document.getElementById('ticker-next');
+  function step(){ var it=vp.querySelector('.ticker-item'); return it?Math.round(it.getBoundingClientRect().width):280; }
+  var paused=false, ptimer=null;
+  function pauseAuto(){ paused=true; clearTimeout(ptimer); ptimer=setTimeout(function(){paused=false;},6000); }
+  if(next) next.addEventListener('click',function(){ vp.scrollBy({left:step(),behavior:'smooth'}); pauseAuto(); });
+  if(prev) prev.addEventListener('click',function(){ vp.scrollBy({left:-step(),behavior:'smooth'}); pauseAuto(); });
+  var down=false,sx=0,sl=0;
+  vp.addEventListener('pointerdown',function(e){down=true;sx=e.clientX;sl=vp.scrollLeft;vp.classList.add('dragging');pauseAuto();});
+  window.addEventListener('pointermove',function(e){if(!down)return;vp.scrollLeft=sl-(e.clientX-sx);});
+  window.addEventListener('pointerup',function(){down=false;vp.classList.remove('dragging');});
+  vp.addEventListener('mouseenter',function(){paused=true;});
+  vp.addEventListener('mouseleave',function(){if(!ptimer)paused=false;});
+  setInterval(function(){ if(paused)return;
+    if(vp.scrollLeft+vp.clientWidth>=vp.scrollWidth-6){ vp.scrollTo({left:0,behavior:'smooth'}); }
+    else { vp.scrollBy({left:step(),behavior:'smooth'}); }
+  },2800);
+})();
+</script>
 
 </body></html>
