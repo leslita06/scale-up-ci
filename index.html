@@ -270,7 +270,7 @@ footer{background:#04352a;color:rgba(255,255,255,.72);padding:52px 0 30px}
   .btn{padding:12px 20px;font-size:14px}
   .burger{display:flex}
   .nav__links.open{display:flex;position:absolute;top:74px;left:0;right:0;flex-direction:column;background:var(--cream);padding:18px 24px;gap:8px;border-bottom:1px solid var(--line);margin-left:0}
-  .hero__inner{padding:70px 0 78px}
+  .hero__inner{padding:70px 24px 78px}
   .stats__grid{grid-template-columns:repeat(2,1fr);gap:26px 12px}
   .stat:nth-child(2){border-right:0}
   .ctx,.piliers{grid-template-columns:repeat(2,1fr)}
@@ -286,6 +286,9 @@ footer{background:#04352a;color:rgba(255,255,255,.72);padding:52px 0 30px}
   .quote-band__role{margin:3px auto 0}
 }
 @media(max-width:560px){
+  .nav__logo-lockup{height:28px}
+  .nav__cta .btn{display:none}
+
   .ctx,.piliers,.offer-grid,.phases,.results{grid-template-columns:1fr}
   .stats__grid{grid-template-columns:1fr 1fr}
   .hero h1{font-size:38px}
